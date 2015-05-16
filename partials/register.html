@@ -1,0 +1,41 @@
+
+<div id="shadeLayer" class="pop-bg"></div>
+<div id="pop-body-register" class="pop-container">
+  <div class="pop-form">
+    <div class="title">注册<a class="icon pop-close"></a></div>
+    <div class="form-wrap register-wrap">
+      <form name="registerForm" data-form="register">
+        <div class="left-wrap register-left"><span id="registerFormError" class="error-text"></span>
+          <div class="field">
+            <input type="text" placeholder="用户名" class="userName"/>
+          </div>
+          <div class="field">
+            <input type="text" placeholder="手机号码" class="mobile"/>
+          </div>
+          <div class="field checkcode">
+            <input type="text" placeholder="手机验证码" class="mobileCode"/>
+            <input value="点击获取" type="button" class="mobile-check btn-primary-s"/>
+          </div>
+          <div class="field">
+            <input type="password" placeholder="密码(6-14个字符)" class="password"/>
+          </div>
+          <div class="field">
+            <input type="password" placeholder="确认密码" class="repeatPassword"/>
+          </div>
+          <div class="safe">
+            <label for="">
+              <input type="checkbox" checked="checked"/>我已同意并阅读
+            </label><a href="#">《农大大协议》</a>
+          </div>
+          <div class="submit">
+            <button id="registerFormBtn" class="btn-primary btn-register">注册新账户</button>
+          </div>
+        </div>
+        <div class="right-wrap register-right">
+          <h3>已有账户登录</h3>
+          <p>已有您的农大大账户<a href="#" class="forgot-password">忘记密码</a></p><a id="register-login" class="btn-primary btn-login">登 录</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
