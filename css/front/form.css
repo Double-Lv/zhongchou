@@ -1,0 +1,79 @@
+/*reset*/
+h1,h2,h3,h4,h5,h6{
+	margin: 0;
+}
+/*通用类*/
+.i560{
+	width: 560px;
+}
+.i190{
+	width: 190px;
+}
+.mr10{
+	margin-right: 10px;
+}
+/*页面样式*/
+.maincont{
+	width: 1000px;
+	margin: 40px auto 0;
+}
+.stepprogress{
+	width:100%;
+	height: 38px;
+	background-position: top center;
+	background-repeat: no-repeat;
+	margin-bottom: 24px;
+}
+.stepprogress.step1{
+	background-image: url(../../images/front/create/jdt1.png);
+}
+.formpanel{
+	width: 942px;
+	padding: 26px 30px;
+	margin: 0 auto;
+	background: #FFF;
+	border: 4px solid #EEEEEE;
+}
+.formtitle{
+	font-size: 14px;
+	color: #333;
+	font-weight: bold;
+	border-bottom: 1px solid #CCCCCC;
+	padding-bottom: 10px;
+}
+.formpanel .row{
+	margin-top: 22px;
+	line-height: 30px;
+}
+.formpanel .row .optname{
+	width: 85px;
+  float: left;
+  font-size: 14px;
+  color: #333;
+  margin-right: 8px;
+  text-align: right;
+}
+.formpanel .row .optname.need:before{
+	content: '*';
+	color:#FF4242;
+	vertical-align: middle;
+  margin-right: 2px;
+}
+.formpanel .row .optcont{
+	padding-left: 88px;
+
+}
+.formpanel .row input[type="text"], .formpanel .row select{
+	height: 31px;
+	border: 1px solid #CCCCCC;
+	padding: 6px 0 6px 5px;
+}
+.formpanel .row select{
+	width: 106px;
+}
+.formpanel textarea{
+	width: 440px;
+	height: 156px;
+	border: 1px solid #CCCCCC;
+	padding: 5px;
+}

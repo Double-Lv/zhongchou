@@ -1,10 +1,15 @@
-/* zhongchou : 0.0.0 : Sat May 16 2015 18:49:28 GMT+0800 (CST) */html {
+/* zhongchou : 0.0.0 : Sat May 16 2015 18:49:28 GMT+0800 (CST) */
+html {
   font-family: 'sans-serif';
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+  height: 100%;
 }
 body {
   margin: 0;
+  padding-bottom:295px;
+  position: relative;
+  min-height: 100%;
 }
 article,
 aside,
@@ -625,6 +630,9 @@ video {
 #footer {
   background: #ddd;
   padding: 40px 0;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
 }
 #footer .col-4-1.last {
   width: 32.5%;
