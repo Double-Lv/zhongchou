@@ -7,7 +7,10 @@ zhongchou.create = {
 			pick : '#filePicker1',
 			multiple : false, //允许上传一张
 			thumbWidth : 400,
-			thumbHeight : 220
+			thumbHeight : 220,
+			success : function(data){
+				$('#indeximg').val(data);
+			}
 		});
 
 		//初始化上传移动端图片
@@ -16,7 +19,10 @@ zhongchou.create = {
 			pick : '#filePicker2',
 			multiple : false, //允许上传一张
 			thumbWidth : 600,
-			thumbHeight : 288
+			thumbHeight : 288,
+			success : function(data){
+				$('#mobileimg').val(data);
+			}
 		});
 
 		//初始化校验
@@ -110,7 +116,8 @@ zhongchou.create = {
 		});
 
 		// 文件上传成功，给item添加成功class, 用样式标记上传成功。
-		uploader.on( 'uploadSuccess', function( file ) {
+		uploader.on( 'uploadSuccess', function( file, obj ) {
+			console.log(arguments);
 			var $li = $( '#'+file.id ),
 				container = $li.find('.upprogress'),
 				$img = $li.find('img');
@@ -125,6 +132,9 @@ zhongchou.create = {
 
 		        $img.attr( 'src', src );
 		    }, config.thumbWidth, config.thumbHeight );
+		    if(config.success && $.isFunction(config.success)){
+		    	config.success(obj._raw);
+		    }
 		});
 
 		// 文件上传失败，显示上传出错。
