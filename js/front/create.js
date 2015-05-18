@@ -2,10 +2,10 @@ var zhongchou = {};
 zhongchou.create = {
 	initPage : function(){
 		//初始化上传首屏图片
-		this.uploadImg({
+		this.uploadResource({
 			server : 'php/upload.php',
 			pick : '#filePicker1',
-			multiple : false, //允许上传一张
+			multiple : false,
 			thumbWidth : 400,
 			thumbHeight : 220,
 			success : function(data){
@@ -14,10 +14,10 @@ zhongchou.create = {
 		});
 
 		//初始化上传移动端图片
-		this.uploadImg({
+		this.uploadResource({
 			server : 'php/upload.php',
 			pick : '#filePicker2',
-			multiple : false, //允许上传一张
+			multiple : false,
 			thumbWidth : 600,
 			thumbHeight : 288,
 			success : function(data){
@@ -25,6 +25,45 @@ zhongchou.create = {
 			}
 		});
 
+		//初始化上传项目进程图片
+		this.uploadResource({
+			server : 'php/upload.php',
+			pick : '#filePicker3',
+			multiple : true,
+			thumbWidth : 162,
+			thumbHeight : 105,
+			success : function(data){
+				var processImg = $('#processimg');
+				var val = processImg.val();
+				if(val==''){
+					processImg.val(data);
+				}
+				else{
+					processImg.val(val+','+data);
+				}
+				
+			}
+		});
+
+		//初始化上传项目进程文档
+		this.uploadResource({
+			server : 'php/upload.php',
+			pick : '#filePicker4',
+			multiple : true,
+			thumbWidth : 162,
+			thumbHeight : 105,
+			success : function(data){
+				var processDoc = $('#processdoc');
+				var val = processDoc.val();
+				if(val==''){
+					processDoc.val(data);
+				}
+				else{
+					processDoc.val(val+','+data);
+				}
+				
+			}
+		}, 'doc');
 		//初始化校验
 		this.valid();
 
@@ -61,7 +100,12 @@ zhongchou.create = {
 					return num == gets && num>0 && num<91;
 				}
 			},
-			showAllError : true
+			showAllError : true,
+			beforeSubmit : function(){
+				if($('.valid_error').length>0){
+					return false;
+				}
+			}
 		});
 		validObj.tipmsg.r="&nbsp;";
 	},
@@ -70,8 +114,8 @@ zhongchou.create = {
 			maxNumber:140
 		});
 	},
-	uploadImg : function(config){
-		var uploader = WebUploader.create({
+	uploadResource : function(config, type){
+		var conf = {
 		    auto: config.auto || true,
 		    swf: 'module/webuploader-0.1.5/Uploader.swf',
 		    // 文件接收服务端。
@@ -85,7 +129,14 @@ zhongchou.create = {
 		        extensions: 'gif,jpg,jpeg,png',
 		        mimeTypes: 'image/*'
 		    }
-		});
+		};
+		if(type == 'doc'){
+			conf.accept = {
+				title: 'Doc',
+				extensions: 'doc,docx,pdf'
+			}
+		}
+		var uploader = WebUploader.create(conf);
 		uploader.on( 'fileQueued', function( file ) {
 			$list = $(config.pick).nextAll('.uploader-list');
 		    var $li = $(
@@ -117,21 +168,26 @@ zhongchou.create = {
 
 		// 文件上传成功，给item添加成功class, 用样式标记上传成功。
 		uploader.on( 'uploadSuccess', function( file, obj ) {
-			console.log(arguments);
 			var $li = $( '#'+file.id ),
 				container = $li.find('.upprogress'),
 				$img = $li.find('img');
 		    container.removeClass('uping').addClass('upsucc');
 		    $li.find('.progresstext').text('上传成功');
 		    // 创建缩略图
-		    uploader.makeThumb( file, function( error, src ) {
-		        if ( error ) {
-		            $img.replaceWith('<span>不能预览</span>');
-		            return;
-		        }
+		    //如果是上传文档，设置预览图
+	        if(type == 'doc'){
+	        	$img.attr('src', 'images/front/create/defaultdoc.png');
+	        }
+	        else{
+	        	uploader.makeThumb( file, function( error, src ) {
+			        if ( error ) {
+			            $img.replaceWith('<span>不能预览</span>');
+			            return;
+			        }
+			        $img.attr( 'src', src );
+			    }, config.thumbWidth, config.thumbHeight );
+	        }
 
-		        $img.attr( 'src', src );
-		    }, config.thumbWidth, config.thumbHeight );
 		    if(config.success && $.isFunction(config.success)){
 		    	config.success(obj._raw);
 		    }

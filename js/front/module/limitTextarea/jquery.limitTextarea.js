@@ -4,8 +4,8 @@
 	  	isByte : false,//是否按字符计算，一个中文算两个字符
         maxNumber:140,//允许输入的最大字数
 		position:'bottom',//提示文字的位置，top：文本框上方，bottom：文本框下方
-		onOk:function(el){el.css('background-color','white');},//输入后，字数未超出时调用的函数
-		onOver:function(el){el.css('background-color','lightpink');}//输入后，字数超出时调用的函数   
+		onOk:function(el){el.removeClass('valid_error').css('background-color','white');},//输入后，字数未超出时调用的函数
+		onOver:function(el){el.addClass('valid_error').css('background-color','lightpink');}//输入后，字数超出时调用的函数   
 	  }
 	  var option = $.extend(defaults,opts);
 	  var getByteStrLen = function(str){
