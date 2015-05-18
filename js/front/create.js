@@ -141,6 +141,7 @@ zhongchou.create = {
 			$list = $(config.pick).nextAll('.uploader-list');
 		    var $li = $(
 		            '<div id="' + file.id + '" class="file-item thumbnail">' +
+		            	'<div class="imgoptbar"><a href="javascript:void(0);" class="delimg"></a></div>' +
 		                '<img>' +
 		            '</div>'
 		            );
@@ -173,10 +174,11 @@ zhongchou.create = {
 				$img = $li.find('img');
 		    container.removeClass('uping').addClass('upsucc');
 		    $li.find('.progresstext').text('上传成功');
+		    $li.data('url', obj._raw); //记录返回数据
 		    // 创建缩略图
 		    //如果是上传文档，设置预览图
 	        if(type == 'doc'){
-	        	$img.attr('src', 'images/front/create/defaultdoc.png');
+	        	$img.attr('src', 'images/front/create/defaultdoc.png').css({width:'162px', height:'105px'});
 	        }
 	        else{
 	        	uploader.makeThumb( file, function( error, src ) {
@@ -202,6 +204,20 @@ zhongchou.create = {
 		});
 	},
 	initListeners : function(){
-
+		//删除已上传图片
+		$(document.body).on('click', '.delimg', function(){
+			var $this = $(this);
+			var input = $this.closest('.uppanel').find('input[type="hidden"]');
+			var uppanel = $this.closest('.uppanel');
+			//删除元素
+			$this.closest('.file-item').remove();
+			//为表单重新赋值
+			var newval = [];
+			uppanel.find('.file-item').each(function(){
+				newval.push($(this).data('url'));
+			});
+			input.val(newval.join(','));
+			
+		});
 	}
 };

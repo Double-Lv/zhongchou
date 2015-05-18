@@ -235,3 +235,19 @@ h1,h2,h3,h4,h5,h6{
 	display: inline-block;
 	width: 250px;
 }
+.imgoptbar{
+	display: none;
+}
+.processimgpanel .imgoptbar, .processdocpanel .imgoptbar{
+	display: block;
+	width: 162px;
+	height: 18px;
+	background-color: #F5F5F5;
+}
+.imgoptbar .delimg{
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	background: url(../../images/front/create/delete.png) center center no-repeat;
+	float: right;
+}
