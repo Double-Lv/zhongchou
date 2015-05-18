@@ -8,9 +8,14 @@
     <meta name="keywords" content="">
     <meta name="author" content="undefined">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="js/front/module/webuploader-0.1.5/webuploader.css">
     <link rel="stylesheet" href="css/front/main.css">
     <link rel="stylesheet" href="css/front/form.css">
     <script src="js/front/jquery.js"></script><!--[if lt IE 9]> <script src="js/front/html5.js"></script><![endif]-->
+    <script src="js/front/module/webuploader-0.1.5/webuploader.custom.js"></script>
+    <script src="js/front/module/limitTextarea/jquery.limitTextarea.js"></script>
+    <script src="js/front/module/validform/5.3.2/validform_min.js"></script>
+    <script src="js/front/module/province/pcas.js"></script>
     <link rel="shortcut icon" href="/images/favicon.ico">
   </head>
   <body>
@@ -36,167 +41,200 @@
 
     <div class="maincont">
       <div class="stepprogress step1"></div>
-      <div class="formpanel">
-        <form action="" method="POST">
-          <h2 class="formtitle">发起项目人信息</h2>
-          <div class="row">
-            <div class="optname need">项目名称</div>
-            <div class="optcont">
-              <input type="text" class="i560" placeholder="不多于13个字">
+        <form action="" method="POST" class="validform">
+          <div class="formpanel">
+            <h2 class="formtitle">发起项目人信息</h2>
+            <div class="row">
+              <div class="optname need">项目名称</div>
+              <div class="optcont">
+                <input type="text" class="i560" placeholder="不多于13个字" datatype="*1-13" nullmsg="不能为空" errormsg="不多于13个字">
+                <span class="Validform_checktip"></span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="optname need">项目概述</div>
+              <div class="optcont">
+                <input type="text" class="i560" placeholder="请用一句话概括项目内容，不超过40个字" datatype="*1-40" nullmsg="不能为空" errormsg="不超过40个字">
+                <span class="Validform_checktip"></span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="optname need">筹资金额</div>
+              <div class="optcont">
+                <input type="text" class="money i190 mr10" placeholder="请输入您的意向金额" datatype="n" nullmsg="不能为空" errormsg="请填写数字">元
+                <span class="Validform_checktip"></span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="optname need">筹资上限</div>
+              <div class="optcont">
+                <input type="text" class="i190 mr10" placeholder="不少于筹资金额" datatype="ceilnum" nullmsg="不能为空" errormsg="不少于筹资金额的数字">元
+                <span class="formwarm">0表示无上限。当筹资金额达到上线后，筹资活动结束。</span>
+                <span class="Validform_checktip"></span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="optname need">筹资天数</div>
+              <div class="optcont">
+                <input type="text" class="i190 mr10" placeholder="1-90" datatype="daynum" nullmsg="不能为空" errormsg="请填写1-90的数字">天
+                <span class="Validform_checktip"></span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="optname need">项目地点</div>
+              <div class="optcont">
+                <select class="mr10" id="area1" name="area1"></select>
+                <select id="area2" name="area2"></select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="optname need">上线时间</div>
+              <div class="optcont">
+                <select class="mr10 vat">
+                  <option value="2015">2015年</option>
+                  <option value="2016">2016年</option>
+                  <option value="2017">2017年</option>
+                </select>
+                <select class="vat">
+                  <option value="1">1月</option>
+                  <option value="2">2月</option>
+                  <option value="3">3月</option>
+                  <option value="4">4月</option>
+                  <option value="5">5月</option>
+                  <option value="6">6月</option>
+                  <option value="7">7月</option>
+                  <option value="8">8月</option>
+                  <option value="9">9月</option>
+                  <option value="10">10月</option>
+                  <option value="11">11月</option>
+                  <option value="12">12月</option>
+                </select>
+                <span class="formwarm"><span>您申请的上线时间最早应该为当前月份+1，每月最后三天提交申请，上线时间延至下一月份； 12月份顺延至下一年的1、2月份。最终项目上线时间以审核结果为准。</span></span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="optname need">首页图片</div>
+              <div class="optcont">
+                <div>
+                  <a id="filePicker1" class="vam dib" href="javascript:void(0);">上传首屏图片</a>
+                  <span class="tip">支持jpg，jpeg，png，gif格式，大小不超过2M，建议400*220px</span>
+                  <div class="uploader-list"></div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="optname">移动端图片</div>
+              <div class="optcont">
+                <div>
+                  <a id="filePicker2" class="vam dib" href="javascript:void(0);">上传首屏图片</a>
+                  <span class="tip">支持jpg，jpeg，png，gif格式，大小不超过2M，建议600*288px</span>
+                  <div class="uploader-list"></div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="optname ">项目进展视频</div>
+              <div class="optcont">
+                <select class="mr10">
+                  <option value="2015">2015年</option>
+                  <option value="2016">2016年</option>
+                  <option value="2017">2017年</option>
+                </select>
+                <select>
+                  <option value="1">1月</option>
+                  <option value="2">2月</option>
+                  <option value="3">3月</option>
+                  <option value="4">4月</option>
+                  <option value="5">5月</option>
+                  <option value="6">6月</option>
+                  <option value="7">7月</option>
+                  <option value="8">8月</option>
+                  <option value="9">9月</option>
+                  <option value="10">10月</option>
+                  <option value="11">11月</option>
+                  <option value="12">12月</option>
+                </select>
+                <span class="formwarm">请选择视频内容发生的日期。</span>
+                <div>
+                  <textarea name="" class="mt10 limit" placeholder="请对该视频进行介绍"></textarea>
+                </div>
+                <div>
+                  <input type="text" class="i440" placeholder="请输入乐视视频的播放页地址">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="optname ">项目进展图片</div>
+              <div class="optcont">
+                <select class="mr10">
+                  <option value="2015">2015年</option>
+                  <option value="2016">2016年</option>
+                  <option value="2017">2017年</option>
+                </select>
+                <select>
+                  <option value="1">1月</option>
+                  <option value="2">2月</option>
+                  <option value="3">3月</option>
+                  <option value="4">4月</option>
+                  <option value="5">5月</option>
+                  <option value="6">6月</option>
+                  <option value="7">7月</option>
+                  <option value="8">8月</option>
+                  <option value="9">9月</option>
+                  <option value="10">10月</option>
+                  <option value="11">11月</option>
+                  <option value="12">12月</option>
+                </select>
+                <span class="formwarm">请选择图片内容发生的日期。</span>
+                <div>
+                  <textarea name="" class="mt10 limit" placeholder="请对该图片进行介绍"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="optname ">项目进展文档</div>
+              <div class="optcont">
+                <select class="mr10">
+                  <option value="2015">2015年</option>
+                  <option value="2016">2016年</option>
+                  <option value="2017">2017年</option>
+                </select>
+                <select>
+                  <option value="1">1月</option>
+                  <option value="2">2月</option>
+                  <option value="3">3月</option>
+                  <option value="4">4月</option>
+                  <option value="5">5月</option>
+                  <option value="6">6月</option>
+                  <option value="7">7月</option>
+                  <option value="8">8月</option>
+                  <option value="9">9月</option>
+                  <option value="10">10月</option>
+                  <option value="11">11月</option>
+                  <option value="12">12月</option>
+                </select>
+                <span class="formwarm">请选择图片内容发生的日期。</span>
+                <div>
+                  <textarea name="" class="mt10 limit" placeholder="请对该项目进行介绍"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="optname need">项目介绍</div>
+              <div class="optcont">
+                <textarea placeholder="不超过200字，可以输入图片或视屏。"></textarea>
+                <div class="agreetext">
+                  <input type="checkbox" checked id="agree" name="agree">
+                  <label for="agree">项目成功后，筹资金额的1.5%将被扣除，作为第三方支付平台的手续费。<a href="#" class="clink">《服务协议》</a></label>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="row">
-            <div class="optname need">项目概述</div>
-            <div class="optcont">
-              <input type="text" class="i560" placeholder="请用一句话概括项目内容，不超过40个字">
-            </div>
+          <div class="formbtns textc">
+            <a href="javascript:void(0);" id="submitform" class="fbtn">下一步</a>
           </div>
-          <div class="row">
-            <div class="optname need">筹资金额</div>
-            <div class="optcont">
-              <input type="text" class="i190 mr10" placeholder="请输入您的意向金额">元
-            </div>
-          </div>
-          <div class="row">
-            <div class="optname need">筹资上限</div>
-            <div class="optcont">
-              <input type="text" class="i190 mr10" placeholder="不少于筹资金额">元
-            </div>
-          </div>
-          <div class="row">
-            <div class="optname need">筹资天数</div>
-            <div class="optcont">
-              <input type="text" class="i190 mr10" placeholder="1-90">天
-            </div>
-          </div>
-          <div class="row">
-            <div class="optname need">项目地点</div>
-            <div class="optcont">
-              <select class="mr10">
-                <option value="1">北京市</option>
-              </select>
-              <select>
-                <option value="1">海淀区</option>
-              </select>
-            </div>
-          </div>
-          <div class="row">
-            <div class="optname need">上线时间</div>
-            <div class="optcont">
-              <select class="mr10">
-                <option value="2015">2015年</option>
-                <option value="2016">2016年</option>
-                <option value="2017">2017年</option>
-              </select>
-              <select>
-                <option value="1">1月</option>
-                <option value="2">2月</option>
-                <option value="3">3月</option>
-                <option value="4">4月</option>
-                <option value="5">5月</option>
-                <option value="6">6月</option>
-                <option value="7">7月</option>
-                <option value="8">8月</option>
-                <option value="9">9月</option>
-                <option value="10">10月</option>
-                <option value="11">11月</option>
-                <option value="12">12月</option>
-              </select>
-            </div>
-          </div>
-          <div class="row">
-            <div class="optname need">首页图片</div>
-            <div class="optcont">
-              
-            </div>
-          </div>
-          <div class="row">
-            <div class="optname">移动端图片</div>
-            <div class="optcont">
-              
-            </div>
-          </div>
-          <div class="row">
-            <div class="optname ">项目进展视频</div>
-            <div class="optcont">
-              <select class="mr10">
-                <option value="2015">2015年</option>
-                <option value="2016">2016年</option>
-                <option value="2017">2017年</option>
-              </select>
-              <select>
-                <option value="1">1月</option>
-                <option value="2">2月</option>
-                <option value="3">3月</option>
-                <option value="4">4月</option>
-                <option value="5">5月</option>
-                <option value="6">6月</option>
-                <option value="7">7月</option>
-                <option value="8">8月</option>
-                <option value="9">9月</option>
-                <option value="10">10月</option>
-                <option value="11">11月</option>
-                <option value="12">12月</option>
-              </select>
-            </div>
-          </div>
-          <div class="row">
-            <div class="optname ">项目进展图片</div>
-            <div class="optcont">
-              <select class="mr10">
-                <option value="2015">2015年</option>
-                <option value="2016">2016年</option>
-                <option value="2017">2017年</option>
-              </select>
-              <select>
-                <option value="1">1月</option>
-                <option value="2">2月</option>
-                <option value="3">3月</option>
-                <option value="4">4月</option>
-                <option value="5">5月</option>
-                <option value="6">6月</option>
-                <option value="7">7月</option>
-                <option value="8">8月</option>
-                <option value="9">9月</option>
-                <option value="10">10月</option>
-                <option value="11">11月</option>
-                <option value="12">12月</option>
-              </select>
-            </div>
-          </div>
-          <div class="row">
-            <div class="optname ">项目进展文档</div>
-            <div class="optcont">
-              <select class="mr10">
-                <option value="2015">2015年</option>
-                <option value="2016">2016年</option>
-                <option value="2017">2017年</option>
-              </select>
-              <select>
-                <option value="1">1月</option>
-                <option value="2">2月</option>
-                <option value="3">3月</option>
-                <option value="4">4月</option>
-                <option value="5">5月</option>
-                <option value="6">6月</option>
-                <option value="7">7月</option>
-                <option value="8">8月</option>
-                <option value="9">9月</option>
-                <option value="10">10月</option>
-                <option value="11">11月</option>
-                <option value="12">12月</option>
-              </select>
-            </div>
-          </div>
-          <div class="row">
-            <div class="optname need">项目介绍</div>
-            <div class="optcont">
-              <textarea placeholder="不超过200字，可以输入图片或视屏。"></textarea>
-            </div>
-          </div>
-
         </form>
-      </div>
+      
     </div>
     
     <div class="fixtool"><a class="fixtool-box fixtool-gotop"><span class="fixtool-small">回到顶部</span><span class="fixtool-large">回到<br/>顶部</span></a><a class="fixtool-box fixtool-survey"><span class="fixtool-small">问卷调查</span><span class="fixtool-large">问卷<br/>调查</span></a><a class="fixtool-box fixtool-help"><span class="fixtool-small">帮助中心</span><span class="fixtool-large">帮助<br/>中心</span></a><a class="fixtool-box fixtool-feedback"><span class="fixtool-small">意见反馈</span><span class="fixtool-large">意见<br/>反馈</span></a></div>
@@ -245,5 +283,10 @@
       </div>
     </footer>
     <script src="js/front/base.js"></script>
+    <script src="js/front/form.js"></script>
+    <script src="js/front/create.js"></script>
+    <script>
+    zhongchou.create.initPage();
+    </script>
   </body>
 </html>
