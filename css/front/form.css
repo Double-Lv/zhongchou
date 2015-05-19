@@ -122,9 +122,16 @@ h1,h2,h3,h4,h5,h6{
 	font-size: 12px;
 	background: #fff2f2;
 	border: 1px solid #ffe4e0;
-	padding: 2px 10px 3px;
+	padding: 2px 5px 3px;
 	color: #ea4a36;
 	line-height: 15px;
+}
+.Validform_wrong:before{
+	content: url(../../images/front/create/form_error.png);
+	margin-right: 5px;
+	float: left;
+	position: relative;
+	top: 1px;
 }
 .maincont{
 	width: 1000px;
@@ -244,6 +251,8 @@ h1,h2,h3,h4,h5,h6{
 	content: url(../../images/front/create/form_warm.png);
 	margin-right: 5px;
 	float: left;
+	position: relative;
+	top: 1px;
 }
 .uploader-list .upprogress{
 	position: relative;
