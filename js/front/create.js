@@ -287,7 +287,25 @@ zhongchou.create = {
 			if(typeof box != 'undefined'){
 				box.close();
 			}
-			
+		});
+
+		//删除回报
+		$(document.body).on('click', '.deletepayback', function(){
+			var item = $(this).closest('.paybackitem');
+			$.popbox({
+				title : '提示信息',
+				width : 360,
+				content : '确认删除吗？',
+				onOk : function(){
+					$.ajax({
+						url : '',
+						data : {id : item.data('id')},
+						success : function(data){
+							item.remove();
+						}
+					});
+				}
+			});
 		});
 	},
 
