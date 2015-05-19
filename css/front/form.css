@@ -12,11 +12,23 @@ h1,h2,h3,h4,h5,h6{
 .i190{
 	width: 190px;
 }
+.i90{
+	width: 90px;
+}
+.ml10{
+	margin-left: 10px;
+}
 .mr10{
 	margin-right: 10px;
 }
 .mt10{
 	margin-top: 10px;
+}
+.mt20{
+	margin-top: 20px;
+}
+.ml30{
+	margin-left: 30px;
 }
 .dib{
 	display: inline-block;
@@ -30,6 +42,15 @@ h1,h2,h3,h4,h5,h6{
 .textc{
 	text-align: center;
 }
+.textl{
+	text-align: left;
+}
+.pre{
+	position: relative;
+}
+.pa{
+	position: absolute;
+}
 /*通用表单按钮、图标*/
 .cbtn:link, .cbtn:visited{
 	display: inline-block;
@@ -41,6 +62,18 @@ h1,h2,h3,h4,h5,h6{
 	text-align: center;
 	background-color: #EEEEEE;
 	border: 1px solid #E1E1E1;
+	border-radius: 2px;
+}
+.bluebtn:link, .bluebtn:visited{
+	display: inline-block;
+	color: #FFF;
+	font-size: 14px;
+	padding: 0 10px;
+	height: 28px;
+	line-height: 26px;
+	text-align: center;
+	background-color: #0092E2;
+	border: 1px solid #0084D1;
 	border-radius: 2px;
 }
 .clink:link, .clink:visited{
@@ -58,6 +91,29 @@ h1,h2,h3,h4,h5,h6{
 	line-height: 38px;
 	padding: 0 34px;
 	font-size: 16px;
+}
+.graytext{
+	color: #999;
+}
+.ctable{
+	border: 1px solid #DDDDDD;
+	text-align: center;
+}
+.ctable thead tr{
+	height: 32px;
+	line-height: 32px;
+	background-color: #F3F3F3;
+	font-family: '宋体';
+	font-size: 12px;
+	color: #333;
+	font-weight: bold;
+}
+.ctable td{
+	border: 1px solid #DDDDDD;
+}
+.ctable tbody td{
+	line-height: 24px;
+	padding: 2px 10px;
 }
 /*页面样式*/
 .Validform_wrong{
@@ -82,6 +138,15 @@ h1,h2,h3,h4,h5,h6{
 }
 .stepprogress.step1{
 	background-image: url(../../images/front/create/jdt1.png);
+}
+.stepprogress.step2{
+	background-image: url(../../images/front/create/jdt2.png);
+}
+.stepprogress.step3{
+	background-image: url(../../images/front/create/jdt3.png);
+}
+.stepprogress.step4{
+	background-image: url(../../images/front/create/jdt4.png);
 }
 .formpanel{
 	width: 942px;
@@ -127,6 +192,10 @@ h1,h2,h3,h4,h5,h6{
 	height: 31px;
 	border: 1px solid #CCCCCC;
 	padding: 6px 0 6px 5px;
+}
+.formpanel input[type="radio"]{
+	position: relative;
+	top: 2px;
 }
 .formpanel .row select{
 	width: 106px;
@@ -176,7 +245,7 @@ h1,h2,h3,h4,h5,h6{
 	float: left;
 }
 .uploader-list .upprogress{
-	
+	position: relative;
 }
 .uploader-list .upprogress .upprogresswrap{
 	position: relative;

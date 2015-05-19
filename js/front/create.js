@@ -75,8 +75,33 @@ zhongchou.create = {
 
 		this.initListeners();
 	},
-	valid : function(){
-		validObj = $('.validform').Validform({
+	//初始化步骤二，回报设置
+	initStep2Page : function(){
+		//初始化上传说明图片
+		this.uploadResource({
+			server : 'php/upload.php',
+			pick : '#filePicker1',
+			multiple : false,
+			thumbWidth : 600,
+			thumbHeight : 600,
+			success : function(data){
+				$('#descimg').val(data);
+			}
+		});
+
+		//初始化输入框限制
+		$('.limit').limitTextarea({
+			maxNumber:200
+		});
+
+		//初始化校验
+		this.valid();
+
+		this.initListeners();
+	},
+	valid : function(selector){
+		var form = selector ? $(selector) : $('.validform');
+		validObj = form.Validform({
 			btnSubmit:"#submitform", 
 			tiptype : 3,
 			tipmsg : {
@@ -204,6 +229,7 @@ zhongchou.create = {
 		});
 	},
 	initListeners : function(){
+		var _this = this;
 		//删除已上传图片
 		$(document.body).on('click', '.delimg', function(){
 			var $this = $(this);
@@ -217,7 +243,52 @@ zhongchou.create = {
 				newval.push($(this).data('url'));
 			});
 			input.val(newval.join(','));
+		});
+
+		//点击添加回报
+		$(document.body).on('click', '.addpayback', function(){
+			var source   = $("#formtpl").html();
+			var template = Handlebars.compile(source);
+			var html = template({});
+			box = $.popbox({
+				title : '回报设置',
+				width : '800px',
+				maxHeight : '700px',
+				padding : '0 20px 20px',
+				showBtn : false,
+				contentSelector : '#formtpl',
+				onOpen : function(){
+					_this.valid('.pb_panel .validform');
+					//初始化上传说明图片
+					_this.uploadResource({
+						server : 'php/upload.php',
+						pick : '.pb_panel #filePicker1',
+						multiple : false,
+						thumbWidth : 600,
+						thumbHeight : 600,
+						success : function(data){
+							$('.pb_panel #descimg').val(data);
+						}
+					});
+
+					//初始化输入框限制
+					$('.pb_panel .limit').limitTextarea({
+						maxNumber:200
+					});
+				}
+			});
+		});
+
+		//回报设置，关闭弹出form
+		$(document.body).on('click', '.canceldata', function(){
+			$(this).closest('form')[0].reset();
+			validObj.resetForm();
+			$('.Validform_checktip').html('');
+			if(typeof box != 'undefined'){
+				box.close();
+			}
 			
 		});
-	}
+	},
+
 };
