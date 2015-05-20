@@ -341,14 +341,14 @@ h1,h2,h3,h4,h5,h6{
 	margin-left: 8px;
 	color: #999;
 }
-.processimgpanel .file-item, .processdocpanel .file-item{
+.processimgpanel .file-item, .processdocpanel .file-item, .paybackdescimg .file-item{
 	display: inline-block;
 	width: 250px;
 }
 .imgoptbar{
 	display: none;
 }
-.processimgpanel .imgoptbar, .processdocpanel .imgoptbar{
+.processimgpanel .imgoptbar, .processdocpanel .imgoptbar, .paybackdescimg .imgoptbar{
 	display: block;
 	width: 162px;
 	height: 18px;

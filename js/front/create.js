@@ -42,11 +42,19 @@ zhongchou.create = {
 		this.uploadResource({
 			server : 'php/upload.php',
 			pick : '#filePicker1',
-			multiple : false,
-			thumbWidth : 120,
-			thumbHeight : 120,
+			multiple : true,
+			thumbWidth : 162,
+			thumbHeight : 162,
+			fileNumLimit : 5,
 			success : function(data){
-				$('#descimg').val(data);
+				var descimg = $('#descimg');
+		        var val = descimg.val();
+		        if(val==''){
+		          descimg.val(data);
+		        }
+		        else{
+		          descimg.val(val+','+data);
+		        }
 			}
 		});
 
@@ -131,7 +139,8 @@ zhongchou.create = {
 		    },
 		    formData : {
 		    	token : $('#token').val()
-		    }
+		    },
+		    fileNumLimit : config.fileNumLimit
 		};
 		if(type == 'doc'){
 			conf.accept = {
@@ -248,8 +257,8 @@ zhongchou.create = {
 						server : 'php/upload.php',
 						pick : '.pb_panel #filePicker1',
 						multiple : false,
-						thumbWidth : 120,
-						thumbHeight : 120,
+						thumbWidth : 162,
+						thumbHeight : 162,
 						success : function(data){
 							$('.pb_panel #descimg').val(data);
 						}
