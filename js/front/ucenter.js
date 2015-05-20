@@ -1,0 +1,4 @@
+var zhongchou = {};
+zhongchou.ucenter = {
+	
+}
