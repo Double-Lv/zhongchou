@@ -45,6 +45,19 @@
           <div class="formpanel">
             <h2 class="formtitle">发起项目人信息</h2>
             <div class="row">
+              <div class="optname need">
+                项目分类
+              </div>
+              <div class="optcont">
+                <ul class="category">
+                  <li><a href="javascript:void(0);" class="cateitem checked" data-value="1">水果</a></li>
+                  <li><a href="javascript:void(0);" class="cateitem" data-value="2">坚果</a></li>
+                  <li><a href="javascript:void(0);" class="cateitem" data-value="3">酱类</a></li>
+                </ul>
+                <input type="hidden" id="projecttype">
+              </div>
+            </div>
+            <div class="row">
               <div class="optname need">项目名称</div>
               <div class="optcont">
                 <input type="text" class="i560" placeholder="不多于13个字" datatype="*1-13" nullmsg="不能为空" errormsg="不多于13个字">
@@ -65,18 +78,18 @@
                 <span class="Validform_checktip"></span>
               </div>
             </div>
-            <div class="row">
+            <!-- <div class="row">
               <div class="optname need">筹资上限</div>
               <div class="optcont">
                 <input type="text" class="i190 mr10" placeholder="不少于筹资金额" datatype="ceilnum" nullmsg="不能为空" errormsg="不少于筹资金额的数字">元
                 <span class="formwarm">0表示无上限。当筹资金额达到上线后，筹资活动结束。</span>
                 <span class="Validform_checktip"></span>
               </div>
-            </div>
+            </div> -->
             <div class="row">
               <div class="optname need">筹资天数</div>
               <div class="optcont">
-                <input type="text" class="i190 mr10" placeholder="1-90" datatype="daynum" nullmsg="不能为空" errormsg="请填写1-90的数字">天
+                <input type="text" class="i190 mr10" placeholder="10-90" datatype="daynum" nullmsg="不能为空" errormsg="筹资天数不符合要求，请重新输入">天
                 <span class="Validform_checktip"></span>
               </div>
             </div>

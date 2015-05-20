@@ -82,8 +82,8 @@ zhongchou.create = {
 			server : 'php/upload.php',
 			pick : '#filePicker1',
 			multiple : false,
-			thumbWidth : 600,
-			thumbHeight : 600,
+			thumbWidth : 300,
+			thumbHeight : 300,
 			success : function(data){
 				$('#descimg').val(data);
 			}
@@ -122,7 +122,7 @@ zhongchou.create = {
 				},
 				daynum : function(gets, obj){
 					var num = parseInt(gets);
-					return num == gets && num>0 && num<91;
+					return num == gets && num>9 && num<91;
 				}
 			},
 			showAllError : true,
@@ -230,6 +230,12 @@ zhongchou.create = {
 	},
 	initListeners : function(){
 		var _this = this;
+		//选择项目类型
+		$('.category .cateitem').click(function(){
+			$(this).closest('.category').find('.checked').removeClass('checked');
+			$(this).addClass('checked');
+			$('#projecttype').val($(this).data('value'));
+		});
 		//删除已上传图片
 		$(document.body).on('click', '.delimg', function(){
 			var $this = $(this);
@@ -264,8 +270,8 @@ zhongchou.create = {
 						server : 'php/upload.php',
 						pick : '.pb_panel #filePicker1',
 						multiple : false,
-						thumbWidth : 600,
-						thumbHeight : 600,
+						thumbWidth : 300,
+						thumbHeight : 300,
 						success : function(data){
 							$('.pb_panel #descimg').val(data);
 						}
