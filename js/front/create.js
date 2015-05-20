@@ -25,45 +25,6 @@ zhongchou.create = {
 			}
 		});
 
-		//初始化上传项目进程图片
-		/*this.uploadResource({
-			server : 'php/upload.php',
-			pick : '#filePicker3',
-			multiple : true,
-			thumbWidth : 162,
-			thumbHeight : 105,
-			success : function(data){
-				var processImg = $('#processimg');
-				var val = processImg.val();
-				if(val==''){
-					processImg.val(data);
-				}
-				else{
-					processImg.val(val+','+data);
-				}
-				
-			}
-		});
-
-		//初始化上传项目进程文档
-		this.uploadResource({
-			server : 'php/upload.php',
-			pick : '#filePicker4',
-			multiple : true,
-			thumbWidth : 162,
-			thumbHeight : 105,
-			success : function(data){
-				var processDoc = $('#processdoc');
-				var val = processDoc.val();
-				if(val==''){
-					processDoc.val(data);
-				}
-				else{
-					processDoc.val(val+','+data);
-				}
-				
-			}
-		}, 'doc');*/
 		//初始化校验
 		this.valid();
 
