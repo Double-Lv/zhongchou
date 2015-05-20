@@ -4,16 +4,19 @@ h1,h2,h3,h4,h5,h6{
 }
 /*通用类*/
 .i560{
-	width: 560px;
+	width: 560px !important;
 }
 .i440{
-	width: 440px;
+	width: 440px !important;
 }
 .i190{
-	width: 190px;
+	width: 190px !important;
 }
 .i90{
-	width: 90px;
+	width: 90px !important;
+}
+.i230{
+	width: 230px !important;
 }
 .ml10{
 	margin-left: 10px;
@@ -199,7 +202,7 @@ h1,h2,h3,h4,h5,h6{
 	line-height: 30px;
 }
 .formpanel .row .optname{
-	width: 95px;
+	width: 100px;
 	float: left;
 	font-size: 14px;
 	color: #333;
@@ -213,7 +216,7 @@ h1,h2,h3,h4,h5,h6{
   margin-right: 2px;
 }
 .formpanel .row .optcont{
-	padding-left: 95px;
+	padding-left: 100px;
 
 }
 .formpanel .row input[type="text"], .formpanel .row select{
@@ -273,6 +276,14 @@ h1,h2,h3,h4,h5,h6{
 	float: left;
 	position: relative;
 	top: 1px;
+}
+.formpanel .formborder{
+	padding-bottom: 6px;
+	background-color: #FCFEF9;
+	border: 1px solid #92D167;
+}
+.formpanel .formborder .row{
+	margin-top: 8px;
 }
 .uploader-list .upprogress{
 	position: relative;
@@ -349,4 +360,33 @@ h1,h2,h3,h4,h5,h6{
 	height: 18px;
 	background: url(../../images/front/create/delete.png) center center no-repeat;
 	float: right;
+}
+.cardlist .carditem{
+	display: inline-block;
+	width: 250px;
+	height: 44px;
+	line-height: 42px;
+	font-size: 20px;
+	color: #666;
+	cursor: pointer;
+}
+.cardimg{
+	display: inline-block;
+	vertical-align: middle;
+	width: 120px;
+	height: 25px;
+}
+.cardlist .carditem.checked{
+	background: #FFF3EA;
+	border: 1px solid #FF9B48;
+	color: #ff0000;
+}
+.cardimg.card1{
+	background:url(../../images/front/create/nyyh.png) no-repeat;
+}
+.cardimg.card2{
+	background:url(../../images/front/create/jsyh.png) no-repeat;
+}
+.cardimg.card3{
+	background:url(../../images/front/create/gsyh.png) no-repeat;
 }

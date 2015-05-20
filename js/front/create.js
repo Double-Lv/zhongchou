@@ -26,7 +26,7 @@ zhongchou.create = {
 		});
 
 		//初始化上传项目进程图片
-		this.uploadResource({
+		/*this.uploadResource({
 			server : 'php/upload.php',
 			pick : '#filePicker3',
 			multiple : true,
@@ -63,7 +63,7 @@ zhongchou.create = {
 				}
 				
 			}
-		}, 'doc');
+		}, 'doc');*/
 		//初始化校验
 		this.valid();
 
@@ -82,8 +82,8 @@ zhongchou.create = {
 			server : 'php/upload.php',
 			pick : '#filePicker1',
 			multiple : false,
-			thumbWidth : 300,
-			thumbHeight : 300,
+			thumbWidth : 120,
+			thumbHeight : 120,
 			success : function(data){
 				$('#descimg').val(data);
 			}
@@ -99,7 +99,12 @@ zhongchou.create = {
 
 		this.initListeners();
 	},
-	valid : function(selector){
+	//初始化步骤三，信息确认
+	initStep3Page : function(){
+		this.valid(null);
+		this.initListeners();
+	},
+	valid : function(selector, beforeSubmitFunc){
 		var form = selector ? $(selector) : $('.validform');
 		validObj = form.Validform({
 			btnSubmit:"#submitform", 
@@ -123,12 +128,21 @@ zhongchou.create = {
 				daynum : function(gets, obj){
 					var num = parseInt(gets);
 					return num == gets && num>9 && num<91;
+				},
+				confirmcardnumber : function(gets, obj){
+					if(gets == ''){return false;}
+					var num1 = $('.cardnumber1').val();
+					var num2 = $('.cardnumber2').val();
+					return num1 == num2;
 				}
 			},
 			showAllError : true,
 			beforeSubmit : function(){
 				if($('.valid_error').length>0){
 					return false;
+				}
+				if(beforeSubmitFunc && typeof beforeSubmitFunc == 'function'){
+					return beforeSubmitFunc();
 				}
 			}
 		});
@@ -153,6 +167,9 @@ zhongchou.create = {
 		        title: 'Images',
 		        extensions: 'gif,jpg,jpeg,png',
 		        mimeTypes: 'image/*'
+		    },
+		    formData : {
+		    	token : $('#token').val()
 		    }
 		};
 		if(type == 'doc'){
@@ -170,7 +187,7 @@ zhongchou.create = {
 		                '<img>' +
 		            '</div>'
 		            );
-		    if(config.single){
+		    if(!config.multiple){
 		    	$list.html('');	
 		    }
 		    $list.append( $li );
@@ -270,8 +287,8 @@ zhongchou.create = {
 						server : 'php/upload.php',
 						pick : '.pb_panel #filePicker1',
 						multiple : false,
-						thumbWidth : 300,
-						thumbHeight : 300,
+						thumbWidth : 120,
+						thumbHeight : 120,
 						success : function(data){
 							$('.pb_panel #descimg').val(data);
 						}
@@ -310,6 +327,24 @@ zhongchou.create = {
 							item.remove();
 						}
 					});
+				}
+			});
+		});
+
+		//选择已有银行卡
+		$(document.body).on('change', '.cardlist .checkcard', function(){
+			$('.cardlist .checked').removeClass('checked');
+			$(this).closest('.carditem').addClass('checked');
+		});
+
+		//确认信息页面，保存草稿
+		$('#saveconfirmform').click(function(){
+			var formData = $('.validform').serialize();
+			$.ajax({
+				url : '',
+				data : formData,
+				success : function(data){
+					history.go(0);
 				}
 			});
 		});
