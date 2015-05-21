@@ -72,3 +72,69 @@
 .tabcontent{
 	padding: 16px 0 0 16px;
 }
+.projectpic{
+	width: 50px;
+	height: 50px;
+	margin-right: 5px;
+	margin-left: 12px;
+}
+.progresswrap{
+	display: inline-block;
+	width: 120px;
+	height: 8px;
+	border-radius: 2px;
+	background: #DDDDDD;
+	position: relative;
+}
+.progressbar{
+	display: inline-block;
+	height: 8px;
+	border-radius: 2px;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.progressarea.complete .progressbar{
+	width: 100%;
+	background: url(../../images/front/create/upsucc.png) repeat-x;
+}
+.progressarea.doing .progressbar{
+	background: url(../../images/front/create/uping.png) repeat-x;
+}
+.progressarea.fail .progressbar{
+	width: 100%;
+	background: url(../../images/front/create/upfail.png) repeat-x;
+}
+.progresstext{
+	margin-left: 3px;
+	font-size: 12px;
+}
+.progressarea.complete .progresstext{
+	color: #65af32;
+}
+.progressarea.doing .progresstext{
+	color: #28a1f2;
+}
+.progressarea.fail .progresstext{
+	color: #ec4c32;
+}
+.statusitem{
+	width: 60px;
+	float: left;
+	font-size: 12px;
+	line-height: 16px;
+}
+.statusitem.rborder{
+	border-right: 1px solid #CCCCCC;
+}
+#supporttable td{
+	padding: 0;
+}
+.projectnamecell{
+	text-align: left;
+}
+.projectnamecell span{
+	display: inline-block;
+	vertical-align: middle;
+	width: 130px;
+}

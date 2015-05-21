@@ -24,6 +24,9 @@ h1,h2,h3,h4,h5,h6{
 .mr10{
 	margin-right: 10px;
 }
+.mt5{
+	margin-top: 5px;
+}
 .mt10{
 	margin-top: 10px;
 }
@@ -32,6 +35,9 @@ h1,h2,h3,h4,h5,h6{
 }
 .ml30{
 	margin-left: 30px;
+}
+.pl12{
+	padding-left: 12px !important;
 }
 .dib{
 	display: inline-block;
@@ -53,6 +59,12 @@ h1,h2,h3,h4,h5,h6{
 }
 .pa{
 	position: absolute;
+}
+.font_song{
+	font-family: '宋体';
+}
+.f12{
+	font-size: 12px;
 }
 /*通用表单按钮、图标*/
 .cbtn:link, .cbtn:visited{
