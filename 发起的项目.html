@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>项目进展</title>
+    <title>发起的项目</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Front-End templates for zhongchou">
@@ -45,10 +45,10 @@
               <div class="leftpanel">
                 <ul class="menulist">
                   <li>
-                    <a href="#" class="active">支持的项目</a>
+                    <a href="#">支持的项目</a>
                   </li>
                   <li>
-                    <a href="#">发起的项目</a>
+                    <a href="#" class="active">发起的项目</a>
                   </li>
                   <li>
                     <a href="#">账户设置</a>
@@ -62,130 +62,103 @@
                   <div class="tabheader">
                     <ul>
                       <li>
-                        <a href="#" class="active">所有</a>
+                        <a href="#" class="active">全部项目</a>
                       </li>
                       <li>
-                        <a href="#">已支付</a>
+                        <a href="#">进行中</a>
                       </li>
                       <li>
-                        <a href="#">未支付</a>
+                        <a href="#">已完成</a>
+                      </li>
+                      <li>
+                        <a href="#">未发布</a>
+                      </li>
+                      <li>
+                        <a href="#">已失败</a>
                       </li>
                     </ul>
                   </div>
                   <div class="tabcontent">
-                    <div><span class="font_song">发起人：</span>用户名（451256415）</div>
-                    <table id="supporttable" class="ctable mt5 textc f12">
+                    <table id="supporttable" class="ctable textc f12">
                       <thead>
                         <tr>
-                          <td width="210">项目名称</td>
-                          <td>项目状态</td>
-                          <td width="80">支持金额</td>
-                          <td width="80">支持日期</td>
-                          <td width="80">支付状态</td>
-                          <td width="80">物流状态</td>
+                          <td>项目信息</td>
+                          <td width="130">众筹金额</td>
+                          <td width="130">当前状态</td>
+                          <td width="130">操作</td>
                         </tr>
                       </thead>
                       <tbody>
                         <!--循环单位-->
                         <tr>
-                          <td class="projectnamecell">
-                            <img src="images/defaultimg.jpg" class="projectpic vam">
-                            <span>项目名称</span>
-                          </td>
-                          <td>
-                            <div class="progressarea doing">
-                              <div class="progresswrap">
-                                <div class="progressbar" style="width:30%"></div>
-                              </div>
-                              <span class="progresstext">进行中</span>
-                            </div>
+                          <td class="textl">
+                            <img src="images/defaultimg.jpg" class="projectpic fl">
                             <div>
+                              <h3 class="dib ml10">项目名称</h3>
+                              <span class="projstatus green">审核成功</span>
+                            </div>
+                            <div class="textc">
                               <div class="statusitem rborder"><span class="graytext">已完成</span><br>23%</div>
                               <div class="statusitem rborder"><span class="graytext">已筹资金</span><br>￥1254</div>
                               <div class="statusitem"><span class="graytext">剩余天数</span><br>20天</div>
                             </div>
-                            <div><a href="#" class="clink" target="_blank">查看详情</a></div>
                           </td>
-                          <td>￥5451</td>
-                          <td>2015-12-23 20:12:45</td>
-                          <td>已支付</td>
-                          <td>已发货 <br> 
-                            <a href="#" class="clink tiptrigger">
-                              查看物流
-                              <div class="tipinfo">
-                                <span class="uparrow"></span>
-                                <h3 class="tipinfotitle">
-                                  <span class="fl">韵达快递</span>
-                                  <span class="fr">运单号：54515454125</span>
-                                </h3>
-                                <div class="tipinfocont">
-                                  <ul>
-                                    <li class="recent">在福建漳州公司荣昌花园便民服务站分部进行签收扫描，快件已被 签收  <br/> <span class="ml12">2015-05-11 16:51:10</span></li>
-                                    <li>快件已被 签收 <br/> <span class="ml12">2015-05-11 16:51:10</span></li>
-                                    <li>站分部进行签收扫描，快件已被 <br/> <span class="ml12">2015-05-11 16:51:10</span></li>
-                                    <li>在福建漳州公司荣昌花园. <br/> <span class="ml12">2015-05-11 16:51:10</span></li>
-                                  </ul>
-                                </div>
-                              </div>
-                            </a>
+                          <td>￥5451 <div class="graytext">（进度50%）</div></td>
+                          <td>已保存</td>
+                          <td>
+                            <a href="#" class="clink">项目预览</a> <br>
+                            <a href="#" class="clink">项目编辑</a> <br>
+                            <a href="#" class="clink">问题管理</a> <br>
+                            <a href="#" class="clink">项目进展</a>
                           </td>
                         </tr>
                         <!--循环单位结束-->
-                        <!--循环单位-->
                         <tr>
-                          <td class="projectnamecell">
-                            <img src="images/defaultimg.jpg" class="projectpic vam">
-                            <span>项目名称</span>
-                          </td>
-                          <td>
-                            <div class="progressarea complete">
-                              <div class="progresswrap">
-                                <div class="progressbar"></div>
-                              </div>
-                              <span class="progresstext">完成</span>
-                            </div>
+                          <td class="textl">
+                            <img src="images/defaultimg.jpg" class="projectpic fl">
                             <div>
+                              <h3 class="dib ml10">项目名称</h3>
+                              <span class="projstatus blue">审核中</span>
+                            </div>
+                            <div class="textc">
                               <div class="statusitem rborder"><span class="graytext">已完成</span><br>23%</div>
                               <div class="statusitem rborder"><span class="graytext">已筹资金</span><br>￥1254</div>
                               <div class="statusitem"><span class="graytext">剩余天数</span><br>20天</div>
                             </div>
-                            <div><a href="#" class="clink" target="_blank">查看详情</a></div>
                           </td>
-                          <td>￥5451</td>
-                          <td>2015-12-23 20:12:45</td>
-                          <td>已支付</td>
-                          <td>待发货</td>
+                          <td>￥5451 <div class="graytext">（进度50%）</div></td>
+                          <td>已保存</td>
+                          <td>
+                            <a href="#" class="clink">项目预览</a> <br>
+                            <a href="#" class="clink">项目编辑</a> <br>
+                            <a href="#" class="clink">问题管理</a> <br>
+                            <a href="#" class="clink">项目进展</a>
+                          </td>
                         </tr>
                         <!--循环单位结束-->
-                        <!--循环单位-->
                         <tr>
-                          <td class="projectnamecell">
-                            <img src="images/defaultimg.jpg" class="projectpic vam">
-                            <span>项目名称项目名称项目名称项目名称项目名称</span>
-                          </td>
-                          <td>
-                            <div class="progressarea fail">
-                              <div class="progresswrap">
-                                <div class="progressbar"></div>
-                              </div>
-                              <span class="progresstext">失败</span>
-                            </div>
+                          <td class="textl">
+                            <img src="images/defaultimg.jpg" class="projectpic fl">
                             <div>
+                              <h3 class="dib ml10">项目名称</h3>
+                              <span class="projstatus red">审核拒绝</span>
+                            </div>
+                            <div class="textc">
                               <div class="statusitem rborder"><span class="graytext">已完成</span><br>23%</div>
                               <div class="statusitem rborder"><span class="graytext">已筹资金</span><br>￥1254</div>
                               <div class="statusitem"><span class="graytext">剩余天数</span><br>20天</div>
                             </div>
-                            <div><a href="#" class="clink" target="_blank">查看详情</a></div>
                           </td>
-                          <td>￥5451</td>
-                          <td>2015-12-23 20:12:45</td>
-                          <td>已支付</td>
-                          <td>待发货</td>
+                          <td>￥5451 <div class="graytext">（进度50%）</div></td>
+                          <td>已保存</td>
+                          <td>
+                            <a href="#" class="clink">项目预览</a> <br>
+                            <a href="#" class="clink">项目编辑</a> <br>
+                            <a href="#" class="clink">问题管理</a> <br>
+                            <a href="#" class="clink">项目进展</a>
+                          </td>
                         </tr>
                         <!--循环单位结束-->
-                        <tr>
-                          <td colspan="6" class="textl font_song pl12">订单号：E4654651545151</td>
-                        </tr>
                       </tbody>
                     </table>
                   </div>

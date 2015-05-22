@@ -1,5 +1,6 @@
 .parentpanel{
 	overflow: hidden;
+	padding-bottom: 150px;
 }
 .leftpanel{
 	width: 130px;
@@ -11,6 +12,14 @@
 .rightpanel{
 	padding-left: 140px;
 	min-height: 250px;
+}
+#wuliudetail .leftpanel{
+	width: 200px;
+	padding-top: 34px;
+	background-color: #FFF;
+}
+#wuliudetail .rightpanel{
+	padding-left: 210px;
 }
 .menulist{
 	margin-top: 10px;
@@ -78,6 +87,9 @@
 	margin-right: 5px;
 	margin-left: 12px;
 }
+#wuliudetail .projectpic{
+	margin-left: 0;
+}
 .progresswrap{
 	display: inline-block;
 	width: 120px;
@@ -127,14 +139,117 @@
 .statusitem.rborder{
 	border-right: 1px solid #CCCCCC;
 }
-#supporttable td{
-	padding: 0;
+#supporttable tbody td{
+	padding: 5px 0;
 }
 .projectnamecell{
 	text-align: left;
 }
-.projectnamecell span{
+.projectnamecell span, .projname{
 	display: inline-block;
 	vertical-align: middle;
 	width: 130px;
+}
+.projname{
+	width: 120px;
+}
+.tiptrigger{
+	position: relative;
+	display: inline-block;
+}
+.tiptrigger .tipinfo{
+	display: none;
+	position: absolute;
+	top: 24px;
+	right: 0;
+	width: 225px;
+	padding: 12px;
+	background-color: #FFF3E9;
+	border: 1px solid #FF9B48;
+	font-size: 12px;
+}
+.tipinfo .uparrow{
+	position: absolute;
+	right: 15px;
+	top: -15px;
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	background: url(../../images/front/uparrow.png) bottom center no-repeat;
+}
+.tipinfo .tipinfotitle{
+	color: #333;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #CCCCCC;
+	overflow: hidden;
+	font-size: 12px;
+}
+.tipinfo .tipinfocont{
+	color: #666;
+}
+.tiptrigger:hover .tipinfo{
+	display: block;
+}
+.tipinfocont ul li{
+	margin: 12px 0;
+	text-align: left;
+	line-height: 20px;
+}
+.tipinfocont ul li.recent{
+	color: #ff9b48;
+}
+.tipinfocont ul li:before{
+	content: '·';
+	display: inline-block;
+	font-size: 60px;
+	float: left;
+	margin-top: -3px;
+}
+.wuliuinfoitem{
+	width: 100%;
+	padding: 8px;
+	background-color: #FCFEF9;
+	border: 1px solid #92D167;
+	margin-bottom: 10px;
+	font-size: 12px;
+	line-height: 24px;
+}
+.wuliuinfoitem h3{
+	font-size: 12px;
+	font-family: '宋体';
+}
+.wuliudongtai{
+	font-size: 12px;
+	line-height: 24px;
+}
+.wuliudongtai dt{
+	display: inline-block;
+	vertical-align: top;
+	width: 130px;
+	margin-right: 18px;
+}
+.wuliudongtai dd{
+	display: inline-block;
+	vertical-align: top;
+	margin: 0;
+	width: 364px;
+}
+#supporttable .projstatus{
+	float: right;
+	border-radius: 2px;
+	margin-right: 16px;
+	line-height: 19px;
+	padding: 0 3px;
+}
+#supporttable .projstatus.green{
+	color: #65AF32;
+	border: 1px solid #65AF32;	
+}
+#supporttable .projstatus.blue{
+	color: #28A1F2;
+	border: 1px solid #28A1F2;	
+}
+#supporttable .projstatus.red{
+	color: #EC4C32;
+	border: 1px solid #EC4C32;	
 }
