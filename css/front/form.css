@@ -75,6 +75,9 @@ h1,h2,h3,h4,h5,h6{
 .f12{
 	font-size: 12px;
 }
+.dn{
+	display: none;
+}
 /*通用表单按钮、图标*/
 .cbtn:link, .cbtn:visited{
 	display: inline-block;
@@ -172,6 +175,12 @@ h1,h2,h3,h4,h5,h6{
 	width: 1000px;
 	margin: 40px auto 0;
 }
+.pagetitle{
+	font-size: 24px;
+	color: #333;
+	margin: -14px 0 18px 28px;
+	font-weight: normal;
+}
 .category li{
 	display: inline-block;
 	vertical-align: top;
@@ -233,6 +242,10 @@ h1,h2,h3,h4,h5,h6{
 .formpanel .row{
 	margin-top: 22px;
 	line-height: 30px;
+}
+.formpanel .row.dotborder{
+	border-bottom: 1px dashed #DDD;
+	padding-bottom: 16px;
 }
 .formpanel .row .optname{
 	width: 100px;

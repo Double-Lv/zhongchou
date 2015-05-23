@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>项目进展</title>
+    <title>问题管理</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Front-End templates for zhongchou">
@@ -11,8 +11,9 @@
     <link rel="stylesheet" href="js/front/module/webuploader-0.1.5/webuploader.css">
     <link rel="stylesheet" href="css/front/main.css">
     <link rel="stylesheet" href="css/front/form.css">
+    <link rel="stylesheet" href="css/front/ucenter.css">
     <script src="js/front/jquery.js"></script><!--[if lt IE 9]> <script src="js/front/html5.js"></script><![endif]-->
-    <script src="js/front/module/webuploader-0.1.5/webuploader.js"></script>
+    <script src="js/front/module/limitTextarea/jquery.limitTextarea.js"></script>
     <link rel="shortcut icon" href="/images/favicon.ico">
   </head>
   <body>
@@ -37,54 +38,67 @@
     </header>
 
     <div class="maincont">
-      <h1 class="pagetitle">项目进展</h1>
       <form action="" method="POST">
-        <div class="formpanel">
-          <div class="row dotborder">
-            <div class="optname ">选择日期</div>
-            <div class="optcont">
-              <select class="mr10">
-                <option value="2015">2015年</option>
-                <option value="2016">2016年</option>
-                <option value="2017">2017年</option>
-              </select>
-              <select>
-                <option value="1">1月</option>
-                <option value="2">2月</option>
-                <option value="3">3月</option>
-                <option value="4">4月</option>
-                <option value="5">5月</option>
-                <option value="6">6月</option>
-                <option value="7">7月</option>
-                <option value="8">8月</option>
-                <option value="9">9月</option>
-                <option value="10">10月</option>
-                <option value="11">11月</option>
-                <option value="12">12月</option>
-              </select>
-              <span class="formwarm">请选择日期。</span>
-              <div>
-                <textarea name="" class="mt10" placeholder="请输入您想说的话"></textarea>
+        <div class="formpanel" id="questionmanage">
+          <h2 class="formtitle">问题管理</h2>
+          <div class="dotborder">
+
+            <div class="tabpanel mt5">
+              <div class="tabheader">
+                <ul>
+                  <li>
+                    <a href="#" class="active">全部评论（212）</a>
+                  </li>
+                  <li>
+                    <a href="#">未回复（12）</a>
+                  </li>
+                  <li>
+                    <a href="#">已回复（23）</a>
+                  </li>
+                </ul>
               </div>
-            </div>
-          </div>
-          <div class="row dotborder">
-            <div class="optname">选择图片</div>
-            <div class="optcont">
-              <span class="tip" style="margin-left:0;">支持jpg、jpeg、png、gif格式，大小不超过2M。建议尺寸：650 X 415px</span>
-              <div class="processimgpanel uppanel"> 
-                <div class="uploader-list"><a href="javascript:void(0);" id="pickimg" class="mt10"></a></div>
-                <input type="hidden" id="processimg">
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="optname">视频地址</div>
-            <div class="optcont">
-              <input type="text" class="i440" placeholder="请输入视频的播放页地址">
-              <div class="mt20">
-                <a href="javascript:document.forms[0].submit()" class="savedata bluebtn mr10">保存</a>
-                <a href="javascript:void(0);" class="canceldata cbtn mr10">取消</a>
+              <div class="tabcontent">
+                <ul class="commentlist">
+                  <!--循环单位-->
+                  <li class="commentitem" data-id="">
+                    <div class="usericonarea">
+                      <img src="images/defaultimg.jpg" class="usericon">  
+                    </div>
+                    <h3 class="username">豆豆</h3>
+                    <div class="commentcont">评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容</div>
+                    <a href="javascript:void(0);" class="reply clink">回复</a>
+                    <a href="javascript:void(0);" class="deletereply clink dn">删除回复</a>
+                    <div class="replypanel dn">
+                      <img src="images/defaultimg.jpg" class="ownericon">
+                      <div class="replycontent">
+                        <textarea class="replytext limit" placeholder="回复内容请在200字以内"></textarea>
+                        <div class="mt10">
+                          <a href="javascript:void(0);" class="savereply bluebtn mr10">保存</a>
+                          <a href="javascript:void(0);" class="cancelreply cbtn mr10">取消</a>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <!--循环单位结束-->
+                  <!--循环单位-->
+                  <li class="commentitem" data-id="">
+                    <div class="usericonarea">
+                      <img src="images/defaultimg.jpg" class="usericon">  
+                    </div>
+                    <h3 class="username">豆豆</h3>
+                    <div class="commentcont">评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容</div>
+                    <a href="javascript:void(0);" class="reply clink dn">回复</a>
+                    <a href="javascript:void(0);" class="deletereply clink">删除回复</a>
+                    <div class="replypanel">
+                      <img src="images/defaultimg.jpg" class="ownericon">
+                      <div class="replycontent">
+                        <h3 class="ownername">大樱桃专卖店</h3>
+                        <div class="ownerreply">非常感谢你对大樱桃此次活动的支持。</div>
+                      </div>
+                    </div>
+                  </li>
+                  <!--循环单位结束-->
+                </ul>
               </div>
             </div>
           </div>
@@ -142,7 +156,7 @@
     <script src="js/front/form.js"></script>
     <script src="js/front/ucenter.js"></script>
     <script>
-    zhongchou.ucenter.initProcessPage();
+    zhongchou.ucenter.initQuestion();
     </script>
   </body>
 </html>

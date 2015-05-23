@@ -66,6 +66,9 @@
 	line-height: 28px;
 	text-align: center;
 }
+#questionmanage .tabheader ul li{
+	width: 124px;
+}
 .tabheader ul li a{
 	display: inline-block;
 	width: 100%;
@@ -80,6 +83,9 @@
 }
 .tabcontent{
 	padding: 16px 0 0 16px;
+}
+#questionmanage .tabcontent{
+	padding-top: 0;
 }
 .projectpic{
 	width: 50px;
@@ -252,4 +258,55 @@
 #supporttable .projstatus.red{
 	color: #EC4C32;
 	border: 1px solid #EC4C32;	
+}
+/*问题管理页面样式*/
+.usericonarea{
+	width: 56px;
+	height: 100px;
+	float: left;
+	margin-right: 10px;
+}
+.usericonarea .usericon{
+	width: 56px;
+	height: 56px;
+}
+.commentitem{
+	padding-bottom: 20px;
+	padding-top: 20px;
+	border-bottom: 1px dashed #DDD;
+}
+.commentitem .username{
+	font-size: 16px;
+	color: #333;
+}
+.commentitem .commentcont{
+	font-size: 14px;
+	color: #666;
+	margin-top: 3px;
+}
+.replypanel{
+	overflow: hidden;
+}
+.commentitem .reply{
+	font-size: 12px;
+}
+.ownericon{
+	width: 36px;
+	height: 36px;
+	float: left;
+	margin-right: 12px;
+	margin-top: 20px;
+}
+.replycontent{
+	width: 570px;
+	float: left;
+	margin-top: 20px;
+}
+.formpanel .replytext{
+	width: 438px;
+	height: 160px;
+}
+.ownername{
+	font-size: 15px;
+	color: #65af32;
 }
